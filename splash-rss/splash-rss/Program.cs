@@ -13,12 +13,10 @@ namespace splash_rss
             SplashConfig config = new SplashConfig();
             var commands = config.GetCommands();
 
-            Feed testFeedItem = new Feed("foo", "bar");
-
-            Cache c = new Cache();
-            c.Insert(testFeedItem.name, testFeedItem);
-            bool contains = c.Contains(testFeedItem.name);
-            Feed returnedItem = (Feed)c.Get(testFeedItem.name);
+            Storage storage = new Storage();
+            List<Feed> data = storage.GetStorage();
+            Feed item = new Feed("hello", "world");
+            storage.AddStorageItem(item);
         }
     }
 }
