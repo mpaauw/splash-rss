@@ -13,18 +13,12 @@ namespace splash_rss
             SplashConfig config = new SplashConfig();
             var commands = config.GetCommands();
 
-            // invalid add:
-            config.AddCommand("foo", "bar");
+            Feed testFeedItem = new Feed("foo", "bar");
 
-            // valid add:
-            config.AddCommand("south", "park");
-
-            // invalid delete:
-            config.RemoveCommand("dog");
-
-            // valid delete:
-            config.RemoveCommand("foo");
-
+            Cache c = new Cache();
+            c.Insert(testFeedItem.name, testFeedItem);
+            bool contains = c.Contains(testFeedItem.name);
+            Feed returnedItem = (Feed)c.Get(testFeedItem.name);
         }
     }
 }
