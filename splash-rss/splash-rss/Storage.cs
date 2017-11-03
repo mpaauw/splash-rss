@@ -23,12 +23,26 @@ namespace splash_rss
             LoadStorage();
         }
 
+        ~Storage()
+        {
+            SaveStorage();
+        }
+
         public void LoadStorage()
         {
             using(StreamReader reader = new StreamReader(dataFileName))
             {
                 string json = reader.ReadToEnd();
                 feeds = serializer.Deserialize<List<Feed>>(json);
+            }
+        }
+
+        public void SaveStorage()
+        {
+            using(StreamWriter writer = new StreamWriter(dataFileName))
+            {
+                string data = serializer.Serialize(feeds);
+                writer.Write(data);
             }
         }
 
@@ -39,7 +53,7 @@ namespace splash_rss
 
         public void AddStorageItem(Feed item)
         {
-            throw new NotImplementedException();
+            feeds.Add(item);
         }
     }
 }
