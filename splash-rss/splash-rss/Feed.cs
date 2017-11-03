@@ -8,8 +8,14 @@ namespace splash_rss
 {
     public class Feed
     {
-        public string name;
+        public Feed(string name, string endpoint)
+        {
+            this.name = name;
+            this.endpoint = endpoint;
+        }
 
-        public string endpoint;
+        public string name { get; set; }
+
+        public string endpoint { get; set; }
     }
 }
