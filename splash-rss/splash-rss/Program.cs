@@ -10,9 +10,6 @@ namespace splash_rss
     {
         static void Main(string[] args)
         {
-            SplashConfig config = new SplashConfig();
-            var commands = config.GetCommands();
-
             Storage storage = new Storage();
             List<Feed> data = storage.GetStorage();
             Feed item = new Feed("hello", "world");
