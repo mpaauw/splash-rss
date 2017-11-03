@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace splash_rss
 {
-    interface ISplashConfig
+    public interface ISplashConfig
     {
         Dictionary<string, string> GetCommands();
 

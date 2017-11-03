@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace splash_rss
 {
-    class SplashConfig
+    public class SplashConfig : ISplashConfig
     {
         public SplashConfig() { }
 
