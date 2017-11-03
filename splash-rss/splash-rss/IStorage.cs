@@ -10,6 +10,8 @@ namespace splash_rss
     {
         void LoadStorage();
 
+        void SaveStorage();
+
         List<Feed> GetStorage();
 
         void AddStorageItem(Feed item);
