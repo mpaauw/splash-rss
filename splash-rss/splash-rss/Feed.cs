@@ -8,6 +8,8 @@ namespace splash_rss
 {
     public class Feed
     {
+        public Feed() { }
+
         public Feed(string name, string endpoint)
         {
             this.name = name;
