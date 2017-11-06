@@ -12,6 +12,8 @@ namespace splash_rss
     {
         private List<Feed> feeds;
 
+        private Validator validator;
+
         private JavaScriptSerializer serializer;
 
         private const string dataFileName = "data.json";
@@ -19,6 +21,7 @@ namespace splash_rss
         public Storage()
         {
             feeds = new List<Feed>();
+            validator = new Validator();
             serializer = new JavaScriptSerializer();
             LoadStorage();
         }
@@ -53,7 +56,10 @@ namespace splash_rss
 
         public void AddStorageItem(Feed item)
         {
-            feeds.Add(item);
+            if(validator.ValidateFeed(item))
+            {
+                feeds.Add(item);
+            }
         }
     }
 }
