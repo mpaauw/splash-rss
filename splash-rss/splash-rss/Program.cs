@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ServiceModel.Syndication;
 
 namespace splash_rss
 {
@@ -11,11 +12,15 @@ namespace splash_rss
         static void Main(string[] args)
         {
             Storage storage = new Storage();
-            List<Feed> data = storage.GetStorage();
-            Feed validItem = new Feed("games", "https://www.reddit.com/r/games/.rss");
-            Feed invalidItem = new Feed("games", "https://www.reddit.com/r/games");
-            storage.AddStorageItem(validItem);
-            storage.AddStorageItem(invalidItem);
+            FeedManager feedManager = new FeedManager();
+            List<Feed> storageFeeds = storage.GetStorage();
+            List<List<SyndicationItem>> data = new List<List<SyndicationItem>>();
+            foreach(Feed feed in storageFeeds)
+            {
+                data.Add(feedManager.LoadFeedData(feed));
+            }
+
+            string lol = "haha";
         }
     }
 }
