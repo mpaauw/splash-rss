@@ -12,8 +12,10 @@ namespace splash_rss
         {
             Storage storage = new Storage();
             List<Feed> data = storage.GetStorage();
-            Feed item = new Feed("hello", "world");
-            storage.AddStorageItem(item);
+            Feed validItem = new Feed("games", "https://www.reddit.com/r/games/.rss");
+            Feed invalidItem = new Feed("games", "https://www.reddit.com/r/games");
+            storage.AddStorageItem(validItem);
+            storage.AddStorageItem(invalidItem);
         }
     }
 }
