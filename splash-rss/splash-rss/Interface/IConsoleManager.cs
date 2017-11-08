@@ -9,7 +9,7 @@ namespace splash_rss.Interface
 {
     public interface IConsoleManager
     {
-        void Navigate(List<SyndicationItem> data);
+        void Navigate(List<SyndicationItem> data, int cursorPosition);
 
         void PrintData(List<SyndicationItem> data);
     }
