@@ -47,13 +47,20 @@ namespace splash_rss.Interface
 
         public void PrintData(List<SyndicationItem> data)
         {
+            var evenBackground = ConsoleColor.Black;
+            var evenForeground = ConsoleColor.Green;
+            var oddBackground = ConsoleColor.Green;
+            var oddForeground = ConsoleColor.Black;
+
             if(data.Count < 1)
             {
                 Console.WriteLine("No data to display.");
             }
-            foreach(SyndicationItem item in data)
+            for(int i = 0; i < data.Count; i++)
             {
-                Console.WriteLine(item.Title.Text);
+                Console.BackgroundColor = (i % 2 == 0) ? evenBackground : oddBackground;
+                Console.ForegroundColor = (i % 2 == 0) ? evenForeground : oddForeground;
+                Console.WriteLine(data[i].Title.Text);
             }
             Console.WriteLine("\n(Press ESC to quit.)");
         }
