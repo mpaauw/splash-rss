@@ -22,6 +22,7 @@ namespace splash_rss
             foreach(Feed feed in storageFeeds)
             {
                 List<SyndicationItem> datum = feedManager.LoadFeedData(feed);
+                consoleManager.Navigate(datum, 0);
             }
         }
     }
