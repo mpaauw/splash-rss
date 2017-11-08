@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel.Syndication;
+using splash_rss.Data;
+using splash_rss.Interface;
+using splash_rss.Model;
 
 namespace splash_rss
 {
