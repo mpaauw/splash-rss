@@ -12,5 +12,7 @@ namespace splash_rss.Interface
         void Navigate(List<SyndicationItem> data, int cursorPosition);
 
         void PrintData(List<SyndicationItem> data);
+
+        void MaximizeConsoleWindow();
     }
 }
