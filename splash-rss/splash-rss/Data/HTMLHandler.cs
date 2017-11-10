@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace splash_rss.Data
 {
-    public interface IHTMLParser
+    public class HTMLHandler : IHTMLHandler
     {
 
     }
