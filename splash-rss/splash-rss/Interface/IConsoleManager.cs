@@ -9,9 +9,11 @@ namespace splash_rss.Interface
 {
     public interface IConsoleManager
     {
-        void Navigate(List<SyndicationItem> data, int cursorPosition);
+        void NavigateTopics(List<SyndicationItem> data, int cursorPosition);
 
-        void PrintData(List<SyndicationItem> data);
+        void PrintTopics(List<SyndicationItem> data);
+
+        void PrintTopicData(SyndicationItem datum);
 
         void MaximizeConsoleWindow();
     }

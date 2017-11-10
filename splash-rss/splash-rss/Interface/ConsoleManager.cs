@@ -5,6 +5,7 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using splash_rss.Data;
 
 namespace splash_rss.Interface
 {
@@ -25,9 +26,9 @@ namespace splash_rss.Interface
             MaximizeConsoleWindow();
         }
 
-        public void Navigate(List<SyndicationItem> data, int cursorPosition)
+        public void NavigateTopics(List<SyndicationItem> data, int cursorPosition)
         {
-            PrintData(data);
+            PrintTopics(data);
             Console.SetCursorPosition(0, 0);
             int currentPosition = -1;
             if (data.Count > 0)
@@ -54,14 +55,16 @@ namespace splash_rss.Interface
                         Console.SetCursorPosition(0, currentPosition);
                         break;
                     case ConsoleKey.Enter:
+                        SyndicationItem datum = data[currentPosition];
                         Console.Clear();
-                        Console.WriteLine("You have chosen topic: " + data[currentPosition].Title.Text);
+                        Console.WriteLine("You have chosen topic: " + datum.Title.Text);
+                        PrintTopicData(datum);
                         break;
                 }
             }
         }
 
-        public void PrintData(List<SyndicationItem> data)
+        public void PrintTopics(List<SyndicationItem> data)
         {
             var evenBackground = ConsoleColor.Black;
             var evenForeground = ConsoleColor.Green;
@@ -79,6 +82,15 @@ namespace splash_rss.Interface
                 Console.WriteLine(data[i].Title.Text);
             }
             Console.WriteLine("\n(Press ESC to quit.)");
+        }
+
+        public void PrintTopicData(SyndicationItem datum)
+        {
+            HTMLHandler handler = new HTMLHandler();
+            foreach(SyndicationLink link in datum.Links)
+            {
+                handler.LoadHTMLDocumentFromWeb(link.Uri.AbsoluteUri);
+            }
         }
 
         public void MaximizeConsoleWindow()
