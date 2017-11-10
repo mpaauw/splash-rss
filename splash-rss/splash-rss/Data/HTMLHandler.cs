@@ -15,5 +15,10 @@ namespace splash_rss.Data
             HtmlDocument doc = web.Load(url);
             return doc;
         }
+
+        public string ParseHTMLDocument(HtmlDocument doc)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
