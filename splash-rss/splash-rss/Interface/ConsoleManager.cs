@@ -89,7 +89,9 @@ namespace splash_rss.Interface
             HTMLHandler handler = new HTMLHandler();
             foreach(SyndicationLink link in datum.Links)
             {
-                handler.LoadHTMLDocumentFromWeb(link.Uri.AbsoluteUri);
+                var doc = handler.LoadHTMLDocumentFromWeb(link.Uri.AbsoluteUri);
+                string topicData = handler.ParseHTMLDocument(doc);
+                Console.WriteLine(topicData);
             }
         }
 
