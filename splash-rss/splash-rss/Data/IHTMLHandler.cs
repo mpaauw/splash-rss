@@ -11,6 +11,6 @@ namespace splash_rss.Data
     {
         HtmlDocument LoadHTMLDocumentFromWeb(string url);
 
-        string ParseHTMLDocument(HtmlDocument doc);
+        string ParseHTMLDocument(HtmlDocument doc, string nodeSelector);
     }
 }

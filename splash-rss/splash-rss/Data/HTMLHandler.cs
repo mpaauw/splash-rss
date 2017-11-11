@@ -16,9 +16,9 @@ namespace splash_rss.Data
             return doc;
         }
 
-        public string ParseHTMLDocument(HtmlDocument doc)
+        public string ParseHTMLDocument(HtmlDocument doc, string nodeSelector = "//body")
         {
-            throw new NotImplementedException();
+            return doc.DocumentNode.SelectSingleNode(nodeSelector).InnerText;
         }
     }
 }
